@@ -5,10 +5,10 @@ import '../App.css';
 export class Display extends Component {
 
   render() {
-    const {maps}=this.props
+    const {maps, countryDeleted}=this.props
     return (
       <div>
-      <div className='totalcountries' > Total of { maps.length } contries in this list</div>
+      <div className='totalcountries' > Total of { maps.length } contries in this list. <p id='country-deleted' > {countryDeleted} </p>  </div> 
            {
              maps.map((elem, index)=>(
                 <div className='mappedCountries' key={index} > {
@@ -26,7 +26,7 @@ export class Display extends Component {
                     {index}
                     <button className='delete-btn' 
                             style={{color: 'red', fontWeight: '800', padding: '10px', fontSize: '15px', border: '2px solid black'}} 
-                            onClick={()=>this.props.delete(elem, index)} > 
+                            onClick={()=>this.props.delete(elem.name, index)} > 
                             Delete this country 
                     </button>
                     </h2>} 

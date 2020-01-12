@@ -11,6 +11,7 @@ class App extends Component {
 
     this.state = {
       countries: [],
+      countryDeleted: ''
     }
   }
 
@@ -40,20 +41,21 @@ class App extends Component {
   }
 
   
-  delete = (contName, i) => {
-    console.log(contName, i)
-    let newList = this.state.countries.filter(val=> val.name!==contName)
-    this.setState ({countries: newList })
-  }
-
+  delete = (country, i) => {
+    let newList = this.state.countries.filter((v, ind)=>ind!==i); 
+    this.setState ({countries: newList, countryDeleted: `${country} is deleted` }); 
+    setTimeout(()=>{
+      this.setState({countryDeleted: ''})
+    }, 1000)
+}
 
   render () {
-    const {countries} = this.state
+    const {countries, countryDeleted} = this.state
     return (
       <div className="App">
           <Header /> 
           <Modify contrySearch={this.contrySearch} handleReset={this.handleReset} /> 
-          <Display maps={countries} delete={this.delete} />
+          <Display maps={countries} delete={this.delete} countryDeleted={countryDeleted} />
       </div>
       );
     }

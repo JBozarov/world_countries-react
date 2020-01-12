@@ -60,3 +60,9 @@
   font-weight: 700;
   text-shadow: 1px 1px 1px;
 }
+
+#country-deleted {
+  font-size: 30px;
+  color: crimson;
+  font-weight: 800;
+}
