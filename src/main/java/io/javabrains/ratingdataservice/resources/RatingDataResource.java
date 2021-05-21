@@ -19,12 +19,12 @@ public class RatingDataResource {
     return new Rating(movieId, 4);
   }
 
-  @RequestMapping("user/{userId}")
+  @GetMapping("user/{userId}")
   public UserRating getUserRating(@PathVariable("userId") String userId) {
-    System.out.println("hit");
+    System.out.println("rating hit user id " + userId);
     List<Rating> ratings = Arrays.asList(
-            new Rating("1234", 4),
-            new Rating("5678", 3));
+            new Rating("223", 4),
+            new Rating("504", 3));
 
     UserRating userRating = new UserRating();
     userRating.setRatings(ratings);
